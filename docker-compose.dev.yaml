@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  client:
+    image: client-dev-i
+    build:
+      dockerfile: Dockerfile.dev
+    container_name: client-dev-c
+    volumes:
+      - ./client:/client
+      - node_modules:/client/node_modules/
+    ports:
+      - "3040:3000"
+    environment:
+      - NODE_ENV=development
+volumes:
+  node_modules:
